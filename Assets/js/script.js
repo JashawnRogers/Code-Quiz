@@ -5,10 +5,13 @@ var choiceA = document.getElementById('a');
 var choiceB = document.getElementById('b');
 var choiceC = document.getElementById('c');
 var choiceD = document.getElementById('d');
-var timer = document.getElementById('timer');
 var greeting = document.getElementById('greeting');
 var startBtn = document.getElementById('startBtn');
+var countDown = document.getElementById('countdown');
 
+var startingTime = 90 ;
+//To get seconds
+// var time = startingTime * 60;
 
 //Array of objects to hold questions and respective answers
 var questions = [
@@ -54,3 +57,21 @@ var questions = [
     }
 ]
 
+
+
+function timer(x){
+    if (x) {
+        //user gets qeustion wrong, subtract 10 seconds
+        startingTime -= 10;
+    }
+    countDown.innerHTML = `: ${startingTime}`;
+    startingTime --;
+}
+
+function startQuiz() {
+    greeting.style.display = 'none';
+
+    setInterval(timer, 1000);
+}
+
+startBtn.addEventListener('click', startQuiz);
