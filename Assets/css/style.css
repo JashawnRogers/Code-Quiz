@@ -1,0 +1,4 @@
+/* Specified height to help with bootsrap functionality*/
+html, body {
+    height: 100%;
+}
